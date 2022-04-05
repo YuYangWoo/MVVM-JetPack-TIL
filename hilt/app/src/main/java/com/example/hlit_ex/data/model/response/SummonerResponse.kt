@@ -1,6 +1,6 @@
 package com.example.hlit_ex.data.model.response
 
-data class SummonerDTO(
+data class SummonerResponse(
     val accountId: String,
     val profileIconId: Int,
     val revisionDate: Long,

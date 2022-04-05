@@ -7,4 +7,5 @@ import javax.inject.Singleton
 @Singleton
 class MainRepository @Inject constructor(){
     suspend fun requestSummonerInfo(summonerName: String) = RetroInstance.client.getSummonerInfo(summonerName)
+    suspend fun requestLeagueInfo(encryptedSummonerId: String) = RetroInstance.client.getLeagueInfo(encryptedSummonerId)
 }
