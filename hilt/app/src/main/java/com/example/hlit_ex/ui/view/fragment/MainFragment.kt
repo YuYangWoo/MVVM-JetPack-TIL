@@ -7,6 +7,7 @@ import com.example.hlit_ex.R
 import com.example.hlit_ex.data.model.response.LeagueResponse
 import com.example.hlit_ex.data.model.response.SummonerResponse
 import com.example.hlit_ex.databinding.FragmentMainBinding
+import com.example.hlit_ex.ui.view.dialog.ProgressDialog
 import com.example.hlit_ex.ui.viewmodel.MainViewModel
 import com.example.hlit_ex.util.Resource
 import com.example.library.binding.BindingFragment
@@ -17,6 +18,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
     private val mainViewModel by viewModels<MainViewModel>()
     private var summonerResponse: SummonerResponse? = null
     private var leagueResponse: List<LeagueResponse>? = null
+    private val progressDialog: ProgressDialog by lazy { ProgressDialog(requireContext()) }
     override fun init() {
         super.init()
         requestSummonerInfo()
@@ -32,13 +34,13 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
         mainViewModel.summonerResponse.observe(viewLifecycleOwner, Observer { resource ->
             when (resource.status) {
                 Resource.Status.SUCCESS -> {
+                    progressDialog.dismiss()
                     summonerResponse = resource.data?.body() ?: return@Observer
                     mainViewModel.requestLeagueInfo(summonerResponse?.id ?: return@Observer)
                     Log.d(TAG, "observerSummonerData: ${summonerResponse}")
-
                 }
                 Resource.Status.LOADING -> {
-
+                    progressDialog.show()
                 }
                 Resource.Status.ERROR -> {
                     Log.d(TAG, "init: 실패${resource.message}")
@@ -51,11 +53,13 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
         mainViewModel.leagueResponse.observe(viewLifecycleOwner, Observer { resource ->
             when (resource.status) {
                 Resource.Status.SUCCESS -> {
+                    progressDialog.dismiss()
                     leagueResponse = resource.data?.body() ?: return@Observer
                     Log.d(TAG, "observerLeagueData: ${leagueResponse}")
                 }
                 Resource.Status.LOADING -> {
-                    
+                    progressDialog.show()
+
                 }
                 Resource.Status.ERROR -> {
                     Log.d(TAG, "observerLeagueData잉?: ${resource.message}")
