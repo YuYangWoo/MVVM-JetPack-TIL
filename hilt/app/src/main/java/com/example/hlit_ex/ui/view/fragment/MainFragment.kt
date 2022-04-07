@@ -23,6 +23,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main) {
@@ -30,7 +31,8 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
     private var summonerResponse: SummonerResponse? = null
     private var leagueResponse: ArrayList<LeagueResponse>? = ArrayList()
     private val progressDialog: ProgressDialog by lazy { ProgressDialog(requireContext()) }
-    private val summonerAdapter by lazy { SummonerAdapter() }
+    @Inject
+    lateinit var summonerAdapter: SummonerAdapter
 
     override fun init() {
         super.init()
@@ -46,7 +48,6 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
                 Resource.Status.SUCCESS -> {
                     progressDialog.dismiss()
                     summonerResponse = resource.data?.body() ?: return@Observer
-                    Log.d(TAG, "observerSummonerData: ${summonerResponse}")
                     mainViewModel.requestLeagueInfo(summonerResponse!!.id)
                 }
                 Resource.Status.LOADING -> {
@@ -67,7 +68,6 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
                     progressDialog.dismiss()
                     resource.data?.body()?.get(0)?.let { leagueResponse?.add(it) }
                     summonerAdapter.submitList(leagueResponse?.toMutableList())
-                    Log.d(TAG, "observerLeagueData: ${leagueResponse}")
                 }
                 Resource.Status.LOADING -> {
                     progressDialog.show()

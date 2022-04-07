@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hlit_ex.data.model.response.LeagueResponse
 import com.example.hlit_ex.databinding.HolderSummonerInfoBinding
+import dagger.hilt.android.scopes.FragmentScoped
+import javax.inject.Inject
 
-
-class SummonerAdapter : ListAdapter<LeagueResponse, SummonerAdapter.LeagueHolder>(DiffSummoner) {
+@FragmentScoped
+class SummonerAdapter @Inject constructor() : ListAdapter<LeagueResponse, SummonerAdapter.LeagueHolder>(DiffSummoner) {
 
     inner class LeagueHolder(private val binding: HolderSummonerInfoBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(leagueResponse: LeagueResponse) {
@@ -23,7 +25,6 @@ class SummonerAdapter : ListAdapter<LeagueResponse, SummonerAdapter.LeagueHolder
     }
 
     override fun onBindViewHolder(holder: LeagueHolder, position: Int) {
-        Log.d("TAG", "onBindViewHolder: ${getItem(position)}")
         holder.bind(getItem(position))
     }
 
