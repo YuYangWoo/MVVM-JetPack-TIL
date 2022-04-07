@@ -4,7 +4,9 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.hlit_ex.data.model.response.LeagueResponse
 import com.example.hlit_ex.data.model.response.SummonerResponse
-import com.example.hlit_ex.data.repository.MainRepository
+import com.example.hlit_ex.data.repository.LocalRepository
+import com.example.hlit_ex.data.repository.RemoteRepository
+import com.example.hlit_ex.data.room.Summoner
 import com.example.hlit_ex.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val mainRepository: MainRepository
+    private val remoteRepository: RemoteRepository,
+    private val localRepository: LocalRepository
 ) : ViewModel() {
     private var _summonerResponse = MutableLiveData<Resource<Response<SummonerResponse>>>()
     val summonerResponse: LiveData<Resource<Response<SummonerResponse>>>
@@ -24,13 +27,16 @@ class MainViewModel @Inject constructor(
     val leagueResponse: LiveData<Resource<Response<List<LeagueResponse>>>>
         get() = _leagueResponse
 
+    var allSummonerInfo: LiveData<List<Summoner>> = localRepository.allSummonerInfo.asLiveData()
+
+    fun insert(summoner: Summoner) = viewModelScope.launch { localRepository.insert(summoner) }
     fun requestSummonerInfo(summonerName: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _summonerResponse.postValue(Resource.loading(null))
             try {
                 _summonerResponse.postValue(
                     Resource.success(
-                        mainRepository.requestSummonerInfo(
+                        remoteRepository.requestSummonerInfo(
                             summonerName
                         )
                     )
@@ -47,7 +53,7 @@ class MainViewModel @Inject constructor(
             try {
                 _leagueResponse.postValue(
                     Resource.success(
-                        mainRepository.requestLeagueInfo(
+                        remoteRepository.requestLeagueInfo(
                             encryptedSummonerId
                         )
                     )

@@ -12,6 +12,7 @@ import com.example.hlit_ex.R
 import com.example.hlit_ex.data.model.response.LeagueResponse
 import com.example.hlit_ex.data.model.response.SummonerInfo
 import com.example.hlit_ex.data.model.response.SummonerResponse
+import com.example.hlit_ex.data.room.Summoner
 import com.example.hlit_ex.databinding.FragmentMainBinding
 import com.example.hlit_ex.ui.adapter.SummonerAdapter
 import com.example.hlit_ex.ui.view.dialog.ProgressDialog
@@ -42,6 +43,11 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
         observerLeagueData()
         addSummonerInfo()
         initRecyclerView()
+        CoroutineScope(Dispatchers.IO).launch {         mainViewModel.insert(Summoner("dd"))
+        }
+        mainViewModel.allSummonerInfo.observe(viewLifecycleOwner, Observer {
+            Log.d(TAG, "init: ${it[0].id}")
+        })
     }
 
     private fun observerSummonerData() {
