@@ -25,28 +25,28 @@ class SummonerInputDialog :
     override fun init() {
         super.init()
         confirmBtn()
-        observerSummonerData()
+//        observerSummonerData()
     }
 
-    private fun observerSummonerData() {
-        mainViewModel.summonerResponse.observe(viewLifecycleOwner, Observer { resource ->
-            when (resource.status) {
-                Resource.Status.SUCCESS -> {
-                    progressDialog.dismiss()
-                    summonerResponse = resource.data?.body() ?: return@Observer
-                    mainViewModel.requestLeagueInfo(summonerResponse!!.id)
-                    Log.d(TAG, "observerSummonerData: ${summonerResponse}")
-                    dismiss()
-                }
-                Resource.Status.LOADING -> {
-                    progressDialog.show()
-                }
-                Resource.Status.ERROR -> {
-                    Log.d(TAG, "init: 실패${resource.message}")
-                }
-            }
-        })
-    }
+//    private fun observerSummonerData() {
+//        mainViewModel.summonerResponse.observe(viewLifecycleOwner, Observer { resource ->
+//            when (resource.status) {
+//                Resource.Status.SUCCESS -> {
+//                    progressDialog.dismiss()
+//                    summonerResponse = resource.data?.body() ?: return@Observer
+//                    mainViewModel.requestLeagueInfo(summonerResponse!!.id)
+//                    Log.d(TAG, "observerSummonerData: ${summonerResponse}")
+//                    dismiss()
+//                }
+//                Resource.Status.LOADING -> {
+//                    progressDialog.show()
+//                }
+//                Resource.Status.ERROR -> {
+//                    Log.d(TAG, "init: 실패${resource.message}")
+//                }
+//            }
+//        })
+//    }
 
     override fun onResume() {
         super.onResume()
@@ -56,6 +56,7 @@ class SummonerInputDialog :
     private fun confirmBtn() {
         binding.setOnOkClick {
             mainViewModel.requestSummonerInfo(binding.nameInputLayout.editText?.text.toString())
+            dismiss()
         }
     }
 

@@ -128,6 +128,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/hlit_ex/ui/adapter/SummonerAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/hlit_ex/ui/view/activity/MainActivity.kt">
           <value>
             <set />
@@ -168,6 +173,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/holder_summoner_info.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/navigation/navigation.xml">
           <value>
             <set />
@@ -198,7 +208,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../P-Project/SmartDelivery/app/src/main/java/com/example/smartdelivery/ui/main/adapter/ArriveAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../P-Project/SmartDelivery/app/src/main/java/com/example/smartdelivery/ui/main/adapter/InvoiceAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../P-Project/SmartDelivery/app/src/main/java/com/example/smartdelivery/ui/main/adapter/RecyclerViewAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../P-Project/SmartDelivery/app/src/main/java/com/example/smartdelivery/ui/main/view/fragment/MainFragment.kt">
           <value>
             <set />
           </value>

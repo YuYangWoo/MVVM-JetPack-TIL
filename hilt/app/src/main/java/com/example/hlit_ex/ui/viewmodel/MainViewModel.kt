@@ -1,5 +1,6 @@
 package com.example.hlit_ex.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.hlit_ex.data.model.response.LeagueResponse
 import com.example.hlit_ex.data.model.response.SummonerResponse
@@ -51,6 +52,7 @@ class MainViewModel @Inject constructor(
                         )
                     )
                 )
+                Log.d("TAG", leagueResponse.value.toString())
             } catch (e: Exception) {
                 _leagueResponse.postValue(Resource.error(null, e.message ?: "Error"))
             }
