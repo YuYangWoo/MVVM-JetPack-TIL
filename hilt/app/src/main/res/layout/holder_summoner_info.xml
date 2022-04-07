@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.example.hlit_ex.data.model.response.LeagueResponse" />
-
+        <import type="com.example.hlit_ex.data.model.response.LeagueResponse"/>
+        <import type="com.example.hlit_ex.data.model.response.SummonerResponse"/>
         <variable
             name="information"
             type="LeagueResponse" />
+        <variable
+            name="summoner"
+            type="SummonerResponse" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -23,6 +26,7 @@
                 android:layout_margin="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                app:profileIcon="@{summoner.profileIconId}"
                 android:contentDescription="@string/profile_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
