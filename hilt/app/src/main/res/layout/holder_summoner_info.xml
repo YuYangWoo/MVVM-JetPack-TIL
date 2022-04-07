@@ -4,14 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.example.hlit_ex.data.model.response.LeagueResponse"/>
-        <import type="com.example.hlit_ex.data.model.response.SummonerResponse"/>
-        <variable
-            name="information"
-            type="LeagueResponse" />
-        <variable
-            name="summoner"
-            type="SummonerResponse" />
+      <import type="com.example.hlit_ex.data.model.response.SummonerInfo"/>
+          <variable
+              name="summonerInfo"
+              type="SummonerInfo" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -26,7 +22,7 @@
                 android:layout_margin="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:profileIcon="@{summoner.profileIconId}"
+                app:profileIcon="@{summonerInfo.summonerResponse.profileIconId}"
                 android:contentDescription="@string/profile_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +30,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/name_text_view"
-                android:text="@{information.summonerName}"
+                android:text="@{summonerInfo.leagueResponse.summonerName}"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -75,7 +71,7 @@
                 android:id="@+id/solo_rank_tier_text_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{information.tier +` ` + information.rank + `(` + information.leaguePoints + `)`}"
+                android:text="@{summonerInfo.leagueResponse.tier +` ` + summonerInfo.leagueResponse.rank + `(` + summonerInfo.leagueResponse.leaguePoints + `)`}"
                 android:gravity="center"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toTopOf="@id/solo_rank_win_lose_text_view"
@@ -88,7 +84,6 @@
                 android:id="@+id/team_rank_tier_text_view"
                 android:textColor="@color/black"
                 android:gravity="center"
-
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/team_title_text_view"
@@ -99,7 +94,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/solo_rank_win_lose_text_view"
-                android:text="@{`Win ` + information.wins + ` / ` + `Lose ` + information.losses}"
+                android:text="@{`Win ` + summonerInfo.leagueResponse.wins + ` / ` + `Lose ` + summonerInfo.leagueResponse.losses}"
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_marginBottom="10dp"

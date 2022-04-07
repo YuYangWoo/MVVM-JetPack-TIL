@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hlit_ex.R
 import com.example.hlit_ex.data.model.response.LeagueResponse
+import com.example.hlit_ex.data.model.response.SummonerInfo
 import com.example.hlit_ex.data.model.response.SummonerResponse
 import com.example.hlit_ex.databinding.FragmentMainBinding
 import com.example.hlit_ex.ui.adapter.SummonerAdapter
@@ -29,7 +30,8 @@ import javax.inject.Inject
 class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main) {
     private val mainViewModel by activityViewModels<MainViewModel>()
     private var summonerResponse: SummonerResponse? = null
-    private var leagueResponse: ArrayList<LeagueResponse>? = ArrayList()
+    private var leagueResponse: LeagueResponse? = null
+    private var summonerInfo = ArrayList<SummonerInfo>()
     private val progressDialog: ProgressDialog by lazy { ProgressDialog(requireContext()) }
     @Inject
     lateinit var summonerAdapter: SummonerAdapter
@@ -66,12 +68,12 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
             when (resource.status) {
                 Resource.Status.SUCCESS -> {
                     progressDialog.dismiss()
-                    resource.data?.body()?.get(0)?.let { leagueResponse?.add(it) }
-                    summonerAdapter.submitList(leagueResponse?.toMutableList())
+                    resource.data?.body()?.get(0)?.let { leagueResponse = it }
+                    summonerInfo?.add(SummonerInfo(summonerResponse!!, leagueResponse!!))
+                    summonerAdapter.submitList(summonerInfo.toMutableList())
                 }
                 Resource.Status.LOADING -> {
                     progressDialog.show()
-
                 }
                 Resource.Status.ERROR -> {
                     progressDialog.dismiss()
