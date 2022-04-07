@@ -84,7 +84,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
     }
 
    private fun addSummonerInfo() {
-       binding.btnSummonerAdd.setOnClickListener {
+       binding.setOnAdd {
            findNavController().navigate(R.id.action_mainFragment_to_summonerInputDialog)
        }
     }

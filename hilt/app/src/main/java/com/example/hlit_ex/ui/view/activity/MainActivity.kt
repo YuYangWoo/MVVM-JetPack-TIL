@@ -11,4 +11,8 @@ class MainActivity : NavigationActivity<ActivityMainBinding>(
     R.id.fragmentContainerView
 ) {
 
+    override fun init() {
+        super.init()
+
+    }
 }

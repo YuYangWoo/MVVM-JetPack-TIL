@@ -4,11 +4,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <import type="android.view.View.OnClickListener" />
+        <variable
+            name="onAdd"
+            type="OnClickListener" />
         <variable
             name="fragment"
             type="com.example.hlit_ex.ui.view.fragment.MainFragment" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@color/color0"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,6 +21,7 @@
         android:id="@+id/btnSummonerAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="@{onAdd}"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
