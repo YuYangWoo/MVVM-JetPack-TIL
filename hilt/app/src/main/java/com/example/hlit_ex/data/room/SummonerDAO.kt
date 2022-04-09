@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SummonerDAO {
-    @Query("SELECT * FROM summoner_table ORDER BY id ASC")
+    @Query("SELECT * FROM summoner_table ORDER BY summonerName ASC")
     fun getSummonerInfo(): Flow<List<Summoner>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

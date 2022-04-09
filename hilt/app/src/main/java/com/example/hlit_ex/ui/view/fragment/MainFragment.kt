@@ -32,8 +32,9 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
     private val mainViewModel by activityViewModels<MainViewModel>()
     private var summonerResponse: SummonerResponse? = null
     private var leagueResponse: LeagueResponse? = null
-    private var summonerInfo = ArrayList<SummonerInfo>()
+    private var summonerInfo: SummonerInfo? = null
     private val progressDialog: ProgressDialog by lazy { ProgressDialog(requireContext()) }
+
     @Inject
     lateinit var summonerAdapter: SummonerAdapter
 
@@ -41,13 +42,9 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
         super.init()
         observerSummonerData()
         observerLeagueData()
+        observerRoomData()
         addSummonerInfo()
         initRecyclerView()
-        CoroutineScope(Dispatchers.IO).launch {         mainViewModel.insert(Summoner("dd"))
-        }
-        mainViewModel.allSummonerInfo.observe(viewLifecycleOwner, Observer {
-            Log.d(TAG, "init: ${it[0].id}")
-        })
     }
 
     private fun observerSummonerData() {
@@ -75,8 +72,19 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
                 Resource.Status.SUCCESS -> {
                     progressDialog.dismiss()
                     resource.data?.body()?.get(0)?.let { leagueResponse = it }
-                    summonerInfo?.add(SummonerInfo(summonerResponse!!, leagueResponse!!))
-                    summonerAdapter.submitList(summonerInfo.toMutableList())
+                    summonerInfo =
+                        SummonerInfo(summonerResponse!!, leagueResponse!!) ?: return@Observer
+                    mainViewModel.insert(
+                        Summoner(
+                            summonerInfo!!.leagueResponse.summonerName,
+                            summonerInfo!!.summonerResponse.profileIconId,
+                            summonerInfo!!.leagueResponse.tier,
+                            summonerInfo!!.leagueResponse.rank,
+                            summonerInfo!!.leagueResponse.leaguePoints,
+                            summonerInfo!!.leagueResponse.wins,
+                            summonerInfo!!.leagueResponse.losses
+                        )
+                    )
                 }
                 Resource.Status.LOADING -> {
                     progressDialog.show()
@@ -89,16 +97,26 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
         })
     }
 
-   private fun addSummonerInfo() {
-       binding.setOnAdd {
-           findNavController().navigate(R.id.action_mainFragment_to_summonerInputDialog)
-       }
+    private fun observerRoomData() {
+        mainViewModel.allSummonerInfo.observe(viewLifecycleOwner, Observer {
+            summonerAdapter.submitList(it.toMutableList())
+//            Log.d(TAG, "observerRoomData: ${it[0].summonerName}${it[0].tier1}")
+        })
+    }
+
+    private fun addSummonerInfo() {
+        binding.setOnAdd {
+            findNavController().navigate(R.id.action_mainFragment_to_summonerInputDialog)
+        }
     }
 
     private fun initRecyclerView() {
         with(binding.recyclerSummonerInfo) {
             layoutManager = LinearLayoutManager(requireContext())
-            val decoration = DividerItemDecoration(requireActivity().applicationContext, DividerItemDecoration.VERTICAL)
+            val decoration = DividerItemDecoration(
+                requireActivity().applicationContext,
+                DividerItemDecoration.VERTICAL
+            )
             addItemDecoration(decoration)
             adapter = summonerAdapter
         }

@@ -18,12 +18,47 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/ProductAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/ProductFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/cell/PCellCreator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/cell/PCellType.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/tracker/GAOnClickListener.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/skt/tmall/mobile/manager/HBSchemeManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/cell/CellTypeEnum.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/subfragment/product/cell/ProductCellLive11Status.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/res/layout/pcell_cell_live11_status.xml">
           <value>
             <set />
           </value>
@@ -64,6 +99,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/example/hlit_ex/data/di/APIModule.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/example/hlit_ex/data/model/response/LeagueResponse.java">
           <value>
             <set />
           </value>
@@ -174,6 +214,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/hlit_ex/data/repository/MainRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/hlit_ex/data/room/Converter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/hlit_ex/data/room/Converters.kt">
           <value>
             <set />
           </value>

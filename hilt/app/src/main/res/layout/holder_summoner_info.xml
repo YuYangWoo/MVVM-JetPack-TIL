@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-      <import type="com.example.hlit_ex.data.model.response.SummonerInfo"/>
+      <import type="com.example.hlit_ex.data.room.Summoner"/>
           <variable
-              name="summonerInfo"
-              type="SummonerInfo" />
+              name="summoner"
+              type="Summoner" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -22,7 +22,7 @@
                 android:layout_margin="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:profileIcon="@{summonerInfo.summonerResponse.profileIconId}"
+                app:profileIcon="@{summoner.profileIcon}"
                 android:contentDescription="@string/profile_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/name_text_view"
-                android:text="@{summonerInfo.leagueResponse.summonerName}"
+                android:text="@{summoner.summonerName}"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -71,7 +71,7 @@
                 android:id="@+id/solo_rank_tier_text_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{summonerInfo.leagueResponse.tier +` ` + summonerInfo.leagueResponse.rank + `(` + summonerInfo.leagueResponse.leaguePoints + `)`}"
+                android:text="@{summoner.tier1 +` ` + summoner.tier2 + `(` + summoner.grade + `)`}"
                 android:gravity="center"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toTopOf="@id/solo_rank_win_lose_text_view"
@@ -94,7 +94,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/solo_rank_win_lose_text_view"
-                android:text="@{`Win ` + summonerInfo.leagueResponse.wins + ` / ` + `Lose ` + summonerInfo.leagueResponse.losses}"
+                android:text="@{`Win ` + summoner.wins + ` / ` + `Lose ` + summoner.losses}"
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_marginBottom="10dp"

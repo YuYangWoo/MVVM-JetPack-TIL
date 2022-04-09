@@ -30,6 +30,7 @@ class MainViewModel @Inject constructor(
     var allSummonerInfo: LiveData<List<Summoner>> = localRepository.allSummonerInfo.asLiveData()
 
     fun insert(summoner: Summoner) = viewModelScope.launch { localRepository.insert(summoner) }
+
     fun requestSummonerInfo(summonerName: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _summonerResponse.postValue(Resource.loading(null))
