@@ -11,9 +11,21 @@
         <action
             android:id="@+id/action_mainFragment_to_summonerInputDialog"
             app:destination="@id/summonerInputDialog" />
+        <action
+            android:id="@+id/action_mainFragment_to_summonerFragment"
+            app:destination="@id/summonerFragment" />
     </fragment>
     <dialog
         android:id="@+id/summonerInputDialog"
         android:name="com.example.hlit_ex.ui.view.dialog.SummonerInputDialog"
         android:label="SummonerInputDialog" />
+    <fragment
+        android:id="@+id/summonerFragment"
+        android:name="com.example.hlit_ex.ui.view.fragment.SummonerFragment"
+        android:label="SummonerFragment" >
+        <argument
+            android:name="summonerName"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
 </navigation>

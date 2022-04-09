@@ -3,7 +3,6 @@ package com.example.hlit_ex.ui.view.fragment
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -16,15 +15,10 @@ import com.example.hlit_ex.data.room.Summoner
 import com.example.hlit_ex.databinding.FragmentMainBinding
 import com.example.hlit_ex.ui.adapter.SummonerAdapter
 import com.example.hlit_ex.ui.view.dialog.ProgressDialog
-import com.example.hlit_ex.ui.view.dialog.SummonerInputDialog
 import com.example.hlit_ex.ui.viewmodel.MainViewModel
 import com.example.hlit_ex.util.Resource
 import com.example.library.binding.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -45,6 +39,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
         observerRoomData()
         addSummonerInfo()
         initRecyclerView()
+        clickAdapterEvent()
     }
 
     private fun observerSummonerData() {
@@ -100,7 +95,6 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
     private fun observerRoomData() {
         mainViewModel.allSummonerInfo.observe(viewLifecycleOwner, Observer {
             summonerAdapter.submitList(it.toMutableList())
-//            Log.d(TAG, "observerRoomData: ${it[0].summonerName}${it[0].tier1}")
         })
     }
 
@@ -121,8 +115,21 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
             adapter = summonerAdapter
         }
     }
+    private fun clickAdapterEvent() {
+       summonerAdapter.setOnItemClickEventListener(object: SummonerAdapter.onItemClickEventListener {
+
+           override fun onClick(view: View, position: Int, data: Summoner) {
+               val mainFragmentToSummonerFragment = MainFragmentDirections.actionMainFragmentToSummonerFragment(data.summonerName)
+               findNavController().navigate(mainFragmentToSummonerFragment)
+           }
+
+       })
+    }
 
     companion object {
         private const val TAG = "MainFragment"
     }
+
+
+
 }

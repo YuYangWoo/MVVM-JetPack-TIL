@@ -18,8 +18,21 @@ import javax.inject.Inject
 @FragmentScoped
 class SummonerAdapter @Inject constructor() : ListAdapter<Summoner, SummonerAdapter.LeagueHolder>(DiffSummoner) {
 
+    private lateinit var onItemClick: onItemClickEventListener
+
+    interface onItemClickEventListener {
+        fun onClick(view: View, position: Int, data: Summoner)
+    }
+    fun setOnItemClickEventListener(listener: onItemClickEventListener) {
+        this.onItemClick = listener
+    }
 
     inner class LeagueHolder(private val binding: HolderSummonerInfoBinding) : RecyclerView.ViewHolder(binding.root) {
+       init {
+           binding.root.setOnClickListener {
+               onItemClick.onClick(it, adapterPosition, binding.summoner!!)
+           }
+       }
         fun bind(summoner: Summoner) {
             binding.summoner = summoner
         }

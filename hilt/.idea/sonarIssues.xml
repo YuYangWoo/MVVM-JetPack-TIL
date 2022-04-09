@@ -283,6 +283,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/hlit_ex/ui/view/fragment/SummonerFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/hlit_ex/ui/viewmodel/MainViewModel.kt">
           <value>
             <set />
@@ -299,6 +304,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_summoner.xml">
           <value>
             <set />
           </value>
