@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.hlit_ex.ui.view.fragment.MainFragment"
-        android:label="MainFragment" >
+        android:label="Hilt">
         <action
             android:id="@+id/action_mainFragment_to_summonerInputDialog"
             app:destination="@id/summonerInputDialog" />
@@ -22,10 +22,10 @@
     <fragment
         android:id="@+id/summonerFragment"
         android:name="com.example.hlit_ex.ui.view.fragment.SummonerFragment"
-        android:label="SummonerFragment" >
+        android:label="WebView">
         <argument
             android:name="summonerName"
-            app:argType="string"
-            android:defaultValue='""' />
+            android:defaultValue='""'
+            app:argType="string" />
     </fragment>
 </navigation>
