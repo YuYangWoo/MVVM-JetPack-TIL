@@ -6,7 +6,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.hlit_ex.R
 import com.example.hlit_ex.data.model.response.LeagueResponse
 import com.example.hlit_ex.data.model.response.SummonerInfo
@@ -19,6 +21,7 @@ import com.example.hlit_ex.ui.viewmodel.MainViewModel
 import com.example.hlit_ex.util.Resource
 import com.example.library.binding.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -69,7 +72,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
                     resource.data?.body()?.get(0)?.let { leagueResponse = it }
                     summonerInfo =
                         SummonerInfo(summonerResponse!!, leagueResponse!!) ?: return@Observer
-                    mainViewModel.insert(
+                    mainViewModel.insertSummoner(
                         Summoner(
                             summonerInfo!!.leagueResponse.summonerName,
                             summonerInfo!!.summonerResponse.profileIconId,
@@ -107,12 +110,26 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
     private fun initRecyclerView() {
         with(binding.recyclerSummonerInfo) {
             layoutManager = LinearLayoutManager(requireContext())
-            val decoration = DividerItemDecoration(
+             DividerItemDecoration(
                 requireActivity().applicationContext,
                 DividerItemDecoration.VERTICAL
-            )
-            addItemDecoration(decoration)
+            ).let { addItemDecoration(it) }
             adapter = summonerAdapter
+            ItemTouchHelper(object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    if (viewHolder is SummonerAdapter.LeagueHolder) {
+                        mainViewModel.deleteSummoner(mainViewModel.allSummonerInfo.value!![viewHolder.adapterPosition])
+                    }
+                }
+            }).attachToRecyclerView(this)
         }
     }
     private fun clickAdapterEvent() {

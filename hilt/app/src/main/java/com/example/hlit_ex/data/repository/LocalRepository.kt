@@ -15,4 +15,5 @@ class LocalRepository @Inject constructor(private val summonerDAO: SummonerDAO){
     @WorkerThread
     suspend fun insert(summoner: Summoner) = summonerDAO.insertSummonerInfo(summoner)
 
+    suspend fun delete(summoner: Summoner) = summonerDAO.deleteSummonerInfo(summoner)
 }
