@@ -17,7 +17,7 @@ class ProgressDialog(context: Context) : Dialog(context){
         super.onCreate(savedInstanceState)
         val binding: DialogProgressBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.dialog_progress, null, false)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         setContentView(binding.root)
     }
 

@@ -50,15 +50,24 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
             when (resource.status) {
                 Resource.Status.SUCCESS -> {
                     progressDialog.dismiss()
-                    summonerResponse = resource.data?.body() ?: return@Observer
-                    mainViewModel.requestLeagueInfo(summonerResponse!!.id)
+                    resource.data?.let { data ->
+                        summonerResponse = data.body()
+                    }
+                    summonerResponse?.let { summonerResponse ->
+                        mainViewModel.requestLeagueInfo(summonerResponse.id)
+                    }
+                    Log.d(TAG, "observerSummonerData: ${summonerResponse.toString()}")
+
+                    if(resource.data?.body() == null) {
+                        shortToast(requireContext(), "데이터를 가지고 있지 않습니다.")
+                    }
                 }
                 Resource.Status.LOADING -> {
                     progressDialog.show()
                 }
                 Resource.Status.ERROR -> {
                     progressDialog.dismiss()
-                    Log.d(TAG, "init: 실패${resource.message}")
+                    resource.message?.let { shortToast(requireContext(), it) }
                 }
             }
         })
@@ -69,27 +78,31 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
             when (resource.status) {
                 Resource.Status.SUCCESS -> {
                     progressDialog.dismiss()
-                    resource.data?.body()?.get(0)?.let { leagueResponse = it }
-                    summonerInfo =
-                        SummonerInfo(summonerResponse!!, leagueResponse!!) ?: return@Observer
-                    mainViewModel.insertSummoner(
-                        Summoner(
-                            summonerInfo!!.leagueResponse.summonerName,
-                            summonerInfo!!.summonerResponse.profileIconId,
-                            summonerInfo!!.leagueResponse.tier,
-                            summonerInfo!!.leagueResponse.rank,
-                            summonerInfo!!.leagueResponse.leaguePoints,
-                            summonerInfo!!.leagueResponse.wins,
-                            summonerInfo!!.leagueResponse.losses
-                        )
+                    resource.data?.body()?.get(EXIST_DATA_INDEX)?.let { leagueResponse = it }
+                    summonerInfo = SummonerInfo(
+                        summonerResponse ?: return@Observer,
+                        leagueResponse ?: return@Observer
                     )
+                    summonerInfo?.let {
+                        mainViewModel.insertSummoner(
+                            Summoner(
+                                it.leagueResponse.summonerName,
+                                it.summonerResponse.profileIconId,
+                                it.leagueResponse.tier,
+                                it.leagueResponse.rank,
+                                it.leagueResponse.leaguePoints,
+                                it.leagueResponse.wins,
+                                it.leagueResponse.losses
+                            )
+                        )
+                    }
                 }
                 Resource.Status.LOADING -> {
                     progressDialog.show()
                 }
                 Resource.Status.ERROR -> {
                     progressDialog.dismiss()
-                    Log.d(TAG, "observerLeagueData잉?: ${resource.message}")
+                    resource.message?.let { shortToast(requireContext(), it) }
                 }
             }
         })
@@ -110,12 +123,14 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
     private fun initRecyclerView() {
         with(binding.recyclerSummonerInfo) {
             layoutManager = LinearLayoutManager(requireContext())
-             DividerItemDecoration(
+            DividerItemDecoration(
                 requireActivity().applicationContext,
                 DividerItemDecoration.VERTICAL
             ).let { addItemDecoration(it) }
             adapter = summonerAdapter
-            ItemTouchHelper(object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+
+            ItemTouchHelper(object :
+                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
                 override fun onMove(
                     recyclerView: RecyclerView,
                     viewHolder: RecyclerView.ViewHolder,
@@ -132,21 +147,21 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
             }).attachToRecyclerView(this)
         }
     }
+
     private fun clickAdapterEvent() {
-       summonerAdapter.setOnItemClickEventListener(object: SummonerAdapter.onItemClickEventListener {
-
-           override fun onClick(view: View, position: Int, data: Summoner) {
-               val mainFragmentToSummonerFragment = MainFragmentDirections.actionMainFragmentToSummonerFragment(data.summonerName)
-               findNavController().navigate(mainFragmentToSummonerFragment)
-           }
-
-       })
+        summonerAdapter.setOnItemClickEventListener(object :
+            SummonerAdapter.onItemClickEventListener {
+            override fun onClick(view: View, position: Int, data: Summoner) {
+                val mainFragmentToSummonerFragment =
+                    MainFragmentDirections.actionMainFragmentToSummonerFragment(data.summonerName)
+                findNavController().navigate(mainFragmentToSummonerFragment)
+            }
+        })
     }
 
     companion object {
         private const val TAG = "MainFragment"
+        private const val EXIST_DATA_INDEX = 0
     }
-
-
 
 }
