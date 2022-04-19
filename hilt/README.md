@@ -11,18 +11,26 @@ Riot API를 사용해 친구들의 전적을 저장하고 전적을 확인하는
 ### MainApplication
 
 
-<img width="329" alt="image" src="https://user-images.githubusercontent.com/59405161/163920804-6610014b-ef62-47f1-9f4c-9cb0939df4c4.png">. 
+<img width="329" alt="image" src="https://user-images.githubusercontent.com/59405161/163920804-6610014b-ef62-47f1-9f4c-9cb0939df4c4.png">
+
+
 ### MainViewModel
 
 
 <img width="442" alt="image" src="https://user-images.githubusercontent.com/59405161/163920857-f7817d8b-156a-4711-a642-d9d247664840.png">
+
+
 ### MainFragment
 
 
 <img width="782" alt="image" src="https://user-images.githubusercontent.com/59405161/163920893-6a3e6085-eef7-45db-bc43-3a6c4bce336f.png">
 
 ### SummonerAdapter
+
+
 <img width="927" alt="image" src="https://user-images.githubusercontent.com/59405161/163920941-02d6ba63-15dc-4ea4-8dc3-b84234130ed6.png">
+
+
 ### RoomModule
 
 <img width="688" alt="image" src="https://user-images.githubusercontent.com/59405161/163920979-b96f4107-6288-4e29-b322-0955c0236765.png">
