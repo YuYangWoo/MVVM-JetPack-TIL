@@ -1,15 +1,11 @@
 package com.example.hlit_ex.ui.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hlit_ex.data.model.response.LeagueResponse
-import com.example.hlit_ex.data.model.response.SummonerInfo
 import com.example.hlit_ex.data.room.Summoner
 import com.example.hlit_ex.databinding.HolderSummonerInfoBinding
 import dagger.hilt.android.scopes.FragmentScoped

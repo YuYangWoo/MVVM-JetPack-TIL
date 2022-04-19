@@ -18,6 +18,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/PMRLibrary/src/main/res/layout/pd_review_filter_11_acme.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/cell/each/CellPuiTabs_RedBoxBtn_Col3.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/retrofit/RequestWithRetrofit.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/ProductAdapter.java">
           <value>
             <set />
@@ -53,12 +68,52 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/productDetail/Item.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/productDetail/ProductDetailFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/productDetail/cell/Price.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/productDetail/cell/ReviewFilter11Acme.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/subfragment/product/cell/ProductCellLive11Replay.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/subfragment/product/cell/ProductCellLive11Status.kt">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/kotlin/com/elevenst/subfragment/product/cell/ProductCellViewTogetherProduct.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/res/layout/pcell_cell_live11_status.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/res/layout/pcell_cell_product_live11_replay.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/_11st/src/main/res/layout/pd_price.xml">
           <value>
             <set />
           </value>
@@ -69,6 +124,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../Example/Android/Hilt/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/README.md">
           <value>
             <set />
           </value>
