@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hlitex"
         android:usesCleartextTraffic="true"
-        android:name=".data.di.MainApplication"
+        android:name=".di.MainApplication"
         android:hardwareAccelerated="true">
         <activity
             android:name=".ui.view.activity.MainActivity"

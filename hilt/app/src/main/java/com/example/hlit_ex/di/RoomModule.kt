@@ -1,4 +1,4 @@
-package com.example.hlit_ex.data.di
+package com.example.hlit_ex.di
 
 import android.content.Context
 import com.example.hlit_ex.data.room.SummonerDAO
@@ -18,6 +18,7 @@ class RoomModule {
     fun provideAppDatabase(@ApplicationContext context: Context): SummonerDatabase {
         return SummonerDatabase.getDatabase(context)
     }
+    @Singleton
     @Provides
     fun provideSummonerDao(summonerDatabase: SummonerDatabase): SummonerDAO {
         return summonerDatabase.summonerDAO()
