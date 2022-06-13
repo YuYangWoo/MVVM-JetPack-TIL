@@ -9,7 +9,6 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("profileIcon")
     fun setProfileIcon(imageView: ImageView, number: Int) {
-        Log.d("PASS", "setProfileIcon: ${number}")
         Glide.with(imageView.context)
             .load("https://ddragon.leagueoflegends.com/cdn/12.6.1/img/profileicon/${number}.png")
             .into(imageView)

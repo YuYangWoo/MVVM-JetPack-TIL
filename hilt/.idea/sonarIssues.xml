@@ -33,6 +33,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-and/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/ProductAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-and/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/cell/PCellCreator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/11st-and/11st-android/_11st/src/main/java/com/elevenst/subfragment/product/cell/PCellType.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../11st-project/11st-android/PMRLibrary/src/main/res/layout/pd_review_filter_11_acme.xml">
           <value>
             <set />
@@ -163,6 +178,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/shockingdeal-android/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../11st-project/shockingdeal-android/app/src/main/java/com/elevenst/deals/ShockingDealsApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../11st-project/shockingdeal-android/app/src/main/java/com/elevenst/deals/push/FCMListenerService.java">
           <value>
             <set />
@@ -248,6 +273,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../Example/Android/CoordinatorLayout/app/src/main/java/com/taetae98/coordinatorlayout/data/Movie.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../Example/Android/Hilt/app/build.gradle">
           <value>
             <set />
@@ -259,6 +289,116 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../DynamicRecyclerView/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/FavoriteMovieFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/MainFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/MovieData.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/MovieListFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/ViewPagerAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/adapter/BindingAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/adapter/MovieAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/adapter/MovieRecyclerView.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/java/com/example/coordinatorlayout/adapter/ViewPagerAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/res/layout/fragment_favorite_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/res/layout/fragment_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/res/layout/fragment_movie_list.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/res/layout/holder_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/res/values-night/themes.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/app/src/main/res/values/themes.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CoordinatorLayout/settings.gradle">
           <value>
             <set />
           </value>
@@ -583,6 +723,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/com/example/hlit_ex/ui/viewmodel/MainViewModelTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/com/example/hlit_ex/ui/viewmodel/MainViewModelTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/build.gradle">
           <value>
             <set />
@@ -624,6 +774,46 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../RecyclerView/app/src/main/java/com/example/recyclerview/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../android-testing/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../android-testing/app/src/main/java/com/example/android/architecture/blueprints/todoapp/statistics/StatisticsUtils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../android-testing/app/src/test/java/com/example/android/architecture/blueprints/todoapp/ExampleUnitTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../android-testing/app/src/test/java/com/example/android/architecture/blueprints/todoapp/statistics/StatisticsUtilsTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../android-testing/app/src/test/java/com/example/android/architecture/blueprints/todoapp/statistics/StatisticsUtilsTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../android-testing/app/src/test/java/com/example/android/architecture/blueprints/todoapp/tasks/TasksViewModelTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../android-testing/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
           <value>
             <set />
           </value>
