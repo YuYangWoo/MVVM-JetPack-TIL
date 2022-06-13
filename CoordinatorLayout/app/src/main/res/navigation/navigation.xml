@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.coordinatorlayout.MainFragment"
+        android:label="MainFragment" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.example.coordinatorlayout.MovieListFragment"
+        android:label="MovieListFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteMovieFragment"
+        android:name="com.example.coordinatorlayout.FavoriteMovieFragment"
+        android:label="FavoriteMovieFragment" />
+    <fragment
+        android:id="@+id/movieInformationFragment"
+        android:name="com.example.coordinatorlayout.MovieInformationFragment"
+        android:label="MovieInformationFragment" >
+        <argument
+            android:name="movie"
+            app:argType="com.example.coordinatorlayout.Movie" />
+    </fragment><action android:id="@+id/action_global_movieInformationFragment" app:destination="@id/movieInformationFragment"/>
+</navigation>
