@@ -1,6 +1,8 @@
 package com.example.coordinatorlayout
 
+import android.content.Context
 import android.graphics.PorterDuff
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
@@ -11,6 +13,9 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main) {
+    private lateinit var callback: OnBackPressedCallback
+    private var backKeyPressedTime: Long = 0
+
     override fun init() {
         super.init()
         initViewPager2()
@@ -47,5 +52,24 @@ class MainFragment : BindingFragment<FragmentMainBinding>(R.layout.fragment_main
         with(binding.viewPager2) {
             adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         }
+    }
+
+    // BackPressed 이벤트 정의
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+                    backKeyPressedTime = System.currentTimeMillis();
+                    shortToast(requireContext(),"\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.")
+                    return;
+                }
+
+                if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+                    requireActivity().finish();
+                }
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 }
